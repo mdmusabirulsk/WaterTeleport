@@ -4,6 +4,7 @@
 [![Fabric Loader](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-blue.svg)](https://fabricmc.net/)
 [![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml/badge.svg)](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml)
 [![Modrinth](https://img.shields.io/badge/Modrinth-Download%20Placeholder-00AF5C.svg)](https://modrinth.com/mod/waterteleport)
 
 **WaterTeleport** is a lightweight, server-authoritative Fabric mod for **Minecraft 26.1.2** that introduces an intuitive movement mechanic: throw Water Buckets as aerodynamic projectiles to teleport to your landing spot with particle effects, configurable cooldowns, and landing safety protection.
