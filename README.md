@@ -68,8 +68,30 @@ WaterTeleport uses a multi-version modular build system where each supported ver
 
 Official releases and pre-compiled binaries are distributed via:
 
-- **Modrinth**: [https://modrinth.com/mod/waterteleport](https://modrinth.com/mod/waterteleport) *(Placeholder)*
 - **GitHub Releases**: [https://github.com/mdmusabirulsk/WaterTeleport/releases](https://github.com/mdmusabirulsk/WaterTeleport/releases)
+- **Modrinth**: [https://modrinth.com/mod/waterteleport](https://modrinth.com/mod/waterteleport) *(Placeholder)*
+
+### 📥 Releases & JAR Download Mapping
+
+Please download the specific JAR corresponding to your Minecraft version:
+
+| Minecraft Version | Release JAR to Download | Java Requirement |
+| :--- | :--- | :--- |
+| **Minecraft 1.20.1** | `waterteleport-1.0.0+mc1.20.1.jar` | Java 17+ |
+| **Minecraft 1.20.2** | `waterteleport-1.0.0+mc1.20.4.jar` | Java 17+ |
+| **Minecraft 1.20.4** | `waterteleport-1.0.0+mc1.20.4.jar` | Java 17+ |
+| **Minecraft 1.21** | `waterteleport-1.0.0+mc1.21.1.jar` | Java 21+ |
+| **Minecraft 1.21.1** | `waterteleport-1.0.0+mc1.21.1.jar` | Java 21+ |
+| **Minecraft 1.21.4** | `waterteleport-1.0.0+mc1.21.4.jar` | Java 21+ |
+| **Minecraft 1.21.5** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.6** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.7** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.8** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.9** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.10** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 1.21.11** | `waterteleport-1.0.0+mc1.21.11.jar` | Java 21+ |
+| **Minecraft 26.1.2** | `waterteleport-1.0.0+mc26.1.2.jar` | Java 25+ |
+| **Minecraft 26.2** | `waterteleport-1.0.0+mc26.2.jar` | Java 25+ |
 
 ---
 

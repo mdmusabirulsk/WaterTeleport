@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] - 2026-09-14
+## [1.0.0] - 2026-09-15
 
 ### Added
+- **Initial Stable Release**: Complete release of WaterTeleport with full multi-version Fabric support.
 - **Throwable Water Bucket Projectile (`ThrownWaterBucketEntity`)**:
   - Custom projectile entity launched by throwing a water bucket.
   - Realistic in-flight physics with water bubble trails and water splash particle effects.
@@ -48,3 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `waterteleport-1.0.0+mc26.2.jar` (supports Minecraft 26.2, Java 25)
   - Built against Mojang Official Mappings and Fabric Loader 0.15.0+ / 0.19.5+.
   - Standard JSpecify 1.0.0 null-safety annotations (`@NullMarked`, `@Nullable`) with zero compilation warnings.
+- **Build & Release Verification**:
+  - Full automated suite verification across all 7 version subprojects.
+  - Bytecode target validation: Java 17 (major 61), Java 21 (major 65), Java 25 (major 69).
+  - 0 compiler warnings under `-Xlint:deprecation` and `-Xlint:unchecked`.
+  - Zero leaked development/IDE files, caches, or credentials.
