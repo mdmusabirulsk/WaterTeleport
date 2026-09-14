@@ -11,8 +11,15 @@ pluginManagement {
 
 rootProject.name = 'waterteleport'
 
-include 'waterteleport-26.1.2'
-project(':waterteleport-26.1.2').projectDir = file('versions/26.1.2')
+def registerVersion(String name, String dir) {
+	include name
+	project(":${name}").projectDir = file("versions/${dir}")
+}
 
-include 'waterteleport-26.2'
-project(':waterteleport-26.2').projectDir = file('versions/26.2')
+registerVersion('waterteleport-1.20.1', '1.20.1')
+registerVersion('waterteleport-1.20.4', '1.20.4')
+registerVersion('waterteleport-1.21.1', '1.21.1')
+registerVersion('waterteleport-1.21.4', '1.21.4')
+registerVersion('waterteleport-1.21.11', '1.21.11')
+registerVersion('waterteleport-26.1.2', '26.1.2')
+registerVersion('waterteleport-26.2', '26.2')

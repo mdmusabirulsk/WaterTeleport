@@ -105,7 +105,7 @@ public class WaterTeleportConfig {
         } else {
             projectileInaccuracy = Math.min(projectileInaccuracy, 10.0f);
         }
-        searchSafeLandingRadius = Math.clamp(searchSafeLandingRadius, 0, 16);
+        searchSafeLandingRadius = Math.max(0, Math.min(16, searchSafeLandingRadius));
     }
 
     /**

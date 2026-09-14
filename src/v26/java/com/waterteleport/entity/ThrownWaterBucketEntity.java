@@ -165,8 +165,9 @@ public class ThrownWaterBucketEntity extends ThrowableItemProjectile {
                         );
                     }
 
-                    serverPlayer.sendOverlayMessage(
-                            Component.translatable("text.waterteleport.unsafe_destination").withStyle(ChatFormatting.RED)
+                    serverPlayer.sendSystemMessage(
+                            Component.translatable("text.waterteleport.unsafe_destination").withStyle(ChatFormatting.RED),
+                            true
                     );
 
                     // Refund water bucket safely without duplicating items or voiding on full inventory

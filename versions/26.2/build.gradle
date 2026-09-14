@@ -3,7 +3,7 @@ plugins {
 	id 'maven-publish'
 }
 
-version = "${rootProject.mod_version}+${project.minecraft_version}"
+version = "${rootProject.mod_version}+mc${project.minecraft_version}"
 group = rootProject.maven_group
 base.archivesName = rootProject.archives_base_name
 
@@ -21,7 +21,10 @@ loom {
 sourceSets {
 	main {
 		java {
-			srcDirs = [rootProject.file("src/main/java")]
+			srcDirs = [
+				rootProject.file("src/${project.era_dir}/java"),
+				rootProject.file("src/common/main/java")
+			]
 		}
 		resources {
 			srcDirs = [rootProject.file("src/main/resources")]
@@ -29,7 +32,7 @@ sourceSets {
 	}
 	client {
 		java {
-			srcDirs = [rootProject.file("src/client/java")]
+			srcDirs = [rootProject.file("src/${project.era_dir}/client/java")]
 		}
 	}
 }
@@ -43,22 +46,24 @@ dependencies {
 processResources {
 	inputs.property "version", rootProject.mod_version
 	inputs.property "minecraft_dependency", project.minecraft_dependency
+	inputs.property "java_dependency", project.java_dependency
 
 	filesMatching("fabric.mod.json") {
 		expand "version": rootProject.mod_version,
-		       "minecraft_dependency": project.minecraft_dependency
+		       "minecraft_dependency": project.minecraft_dependency,
+		       "java_dependency": project.java_dependency
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 25
+	it.options.release = Integer.parseInt(project.java_version)
 	it.options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
 }
 
 java {
 	withSourcesJar()
-	sourceCompatibility = JavaVersion.VERSION_25
-	targetCompatibility = JavaVersion.VERSION_25
+	sourceCompatibility = JavaVersion.toVersion(project.java_version)
+	targetCompatibility = JavaVersion.toVersion(project.java_version)
 }
 
 jar {

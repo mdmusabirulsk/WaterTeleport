@@ -1,5 +1,5 @@
 plugins {
-	id 'net.fabricmc.fabric-loom'
+	id 'fabric-loom'
 	id 'maven-publish'
 }
 
@@ -39,8 +39,10 @@ sourceSets {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
 	implementation "net.fabricmc:fabric-loader:${rootProject.loader_version}"
-	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	compileOnly "org.jspecify:jspecify:1.0.0"
 }
 
 processResources {

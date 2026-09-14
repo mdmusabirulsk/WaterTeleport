@@ -1,13 +1,13 @@
 # WaterTeleport
 
-[![Minecraft Version](https://img.shields.io/badge/Minecraft-26.1%20--%2026.2-brightgreen.svg)](https://www.minecraft.net/)
-[![Fabric Loader](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-blue.svg)](https://fabricmc.net/)
-[![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://adoptium.net/)
+[![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.1%20--%2026.2-brightgreen.svg)](https://www.minecraft.net/)
+[![Fabric Loader](https://img.shields.io/badge/Fabric%20Loader-0.15.0%2B-blue.svg)](https://fabricmc.net/)
+[![Java](https://img.shields.io/badge/Java-17%20%7C%2021%20%7C%2025-orange.svg)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml/badge.svg)](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml)
 [![Modrinth](https://img.shields.io/badge/Modrinth-Download%20Placeholder-00AF5C.svg)](https://modrinth.com/mod/waterteleport)
 
-**WaterTeleport** is a lightweight, server-authoritative Fabric mod for **Minecraft 26.1 – 26.2** that introduces an intuitive movement mechanic: throw Water Buckets as aerodynamic projectiles to teleport to your landing spot with particle effects, configurable cooldowns, and landing safety protection.
+**WaterTeleport** is a lightweight, server-authoritative Fabric mod for **Minecraft 1.20.x, 1.21.x, and 26.x** that introduces an intuitive movement mechanic: throw Water Buckets as aerodynamic projectiles to teleport to your landing spot with particle effects, configurable cooldowns, and landing safety protection.
 
 ---
 
@@ -22,6 +22,7 @@
 - [Configuration](#-configuration)
 - [Compatibility & Architecture](#-compatibility--architecture)
 - [Building from Source](#-building-from-source)
+- [Adding a Future Minecraft Version](#-adding-a-future-minecraft-version)
 - [Contributing](#-contributing)
 - [Security](#-security)
 - [License](#-license)
@@ -49,10 +50,17 @@
 
 ## 📋 Supported Versions & Requirements
 
-| Minecraft Version | Fabric Loader | Fabric API | Java Runtime | Release Artifact |
-| :--- | :--- | :--- | :--- | :--- |
-| **26.1 – 26.1.2** | `0.19.5+` | `0.155.3+26.1.2` | `Java 25+` | `waterteleport-1.0.0+26.1.2.jar` |
-| **26.2** | `0.19.5+` | `0.160.0+26.2` | `Java 25+` | `waterteleport-1.0.0+26.2.jar` |
+WaterTeleport uses a multi-version modular build system where each supported version is compiled, remapped, and packaged into dedicated release artifacts:
+
+| Minecraft Version | Fabric Loader | Fabric API | Java Toolchain | Build Status | Release Artifact |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1.20 – 1.20.1** | `>=0.15.0` | `0.92.2+1.20.1` | Java 17 | **PASS** | `waterteleport-1.0.0+mc1.20.1.jar` |
+| **1.20.2 – 1.20.4** | `>=0.15.0` | `0.97.2+1.20.4` | Java 17 | **PASS** | `waterteleport-1.0.0+mc1.20.4.jar` |
+| **1.21 – 1.21.1** | `>=0.15.0` | `0.116.17+1.21.1` | Java 21 | **PASS** | `waterteleport-1.0.0+mc1.21.1.jar` |
+| **1.21.2 – 1.21.4** | `>=0.15.0` | `0.119.4+1.21.4` | Java 21 | **PASS** | `waterteleport-1.0.0+mc1.21.4.jar` |
+| **1.21.5 – 1.21.11** | `>=0.15.0` | `0.141.6+1.21.11` | Java 21 | **PASS** | `waterteleport-1.0.0+mc1.21.11.jar` |
+| **26.1 – 26.1.2** | `>=0.19.5` | `0.155.3+26.1.2` | Java 25 | **PASS** | `waterteleport-1.0.0+mc26.1.2.jar` |
+| **26.2** | `>=0.19.5` | `0.160.0+26.2` | Java 25 | **PASS** | `waterteleport-1.0.0+mc26.2.jar` |
 
 ---
 
@@ -68,18 +76,16 @@ Official releases and pre-compiled binaries are distributed via:
 ## 🚀 Installation
 
 ### Client Installation (Singleplayer / Multiplayer)
-1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for your Minecraft version (**26.1.x** or **26.2**).
+1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for your Minecraft version.
 2. Download the matching **Fabric API** from Modrinth and place it into your `.minecraft/mods/` directory.
-3. Download the matching WaterTeleport JAR:
-   - For **Minecraft 26.1, 26.1.1, 26.1.2**: use `waterteleport-1.0.0+26.1.2.jar`
-   - For **Minecraft 26.2**: use `waterteleport-1.0.0+26.2.jar`
+3. Download the matching WaterTeleport JAR for your Minecraft version from the table above.
 4. Place the JAR into your `.minecraft/mods/` directory.
 5. Launch the game using the Fabric profile.
 
 ### Dedicated Server Installation
-1. Install Fabric Loader on your Minecraft 26.1.x or 26.2 server.
+1. Install Fabric Loader on your Minecraft server.
 2. Place `fabric-api-*.jar` and the matching `waterteleport-*.jar` into the server's `mods/` directory.
-3. Restart the server. Configuration will generate under `config/waterteleport.json`.
+3. Restart the server. Configuration will automatically generate under `config/waterteleport.json`.
 
 > **Note**: For multiplayer games, WaterTeleport must be installed on both the server (to handle projectile logic, physics, and teleport validation) and the client (for projectile entity rendering and client-side interpolation).
 
@@ -145,14 +151,19 @@ The configuration file is automatically created at `config/waterteleport.json` w
 
 ## 🧩 Compatibility & Architecture
 
+- **Shared Configuration & Logic**:
+  - `WaterTeleportConfig` is unified across all versions in `src/common/main/java`.
+  - Assets (`icon.png`, `en_us.json`) and parameterized `fabric.mod.json` are unified in `src/main/resources`.
+- **Targeted Version Compatibility Layers**:
+  - `src/v1_20`: Supports Minecraft 1.20.x and 1.21.1 (`InteractionResultHolder`, `getMinBuildHeight`, `EntityRendererRegistry`).
+  - `src/v1_21_4`: Supports Minecraft 1.21.2 – 1.21.4 (`InteractionResult`, `ItemStack` cooldowns, `ResourceKey` entity builder).
+  - `src/v26`: Supports Minecraft 1.21.5 – 1.21.11, 26.1.x, and 26.2 (`Identifier`, unobfuscated projectile packages, `sendSystemMessage`).
 - **Clean Sided Separation**:
   - `WaterTeleportMod` initializes common logic, events, and entity registrations.
-  - `WaterTeleportClient` exclusively registers client entity rendering via `EntityRenderers.register`. Client-only classes are never referenced on the dedicated server.
-- **Modern Minecraft 26.1.2 API Standards**:
-  - Official Mojang Mappings.
-  - Modern `InteractionResult` handling.
+  - `WaterTeleportClient` exclusively registers client entity rendering via Fabric API or vanilla `EntityRenderers.register`. Client-only classes are never loaded on dedicated servers.
+- **Strict Code Quality**:
   - JSpecify (`@NullMarked`, `@Nullable`) null-safety architecture across all classes.
-  - Validated with compiler flags `-Xlint:deprecation` and `-Xlint:unchecked`.
+  - 0 compilation errors and 0 compiler warnings under `-Xlint:deprecation` and `-Xlint:unchecked`.
 
 ---
 
@@ -162,26 +173,88 @@ The configuration file is automatically created at `config/waterteleport.json` w
 - **Java 25 JDK** installed ([Adoptium](https://adoptium.net/) or Homebrew `openjdk@25`).
 - Git.
 
-### Build Steps
+The project uses Gradle Java toolchains with `--release` flags to compile each version to its exact Java requirement (Java 17 for 1.20.x, Java 21 for 1.21.x, Java 25 for 26.x).
+
+### Build All Versions
+
+Run the root build command to compile all 7 version subprojects and aggregate all JARs:
 
 ```bash
-# Clone the repository
-git clone https://github.com/mdmusabirulsk/WaterTeleport.git
-cd WaterTeleport
-
-# Build using Gradle Wrapper
 # On Linux / macOS:
 ./gradlew clean build
+
+# Or execute the buildAll task:
+./gradlew buildAll
 
 # On Windows:
 gradlew.bat clean build
 ```
 
-Compiled output `.jar` files for all supported versions will be placed in `build/libs/`:
-- `build/libs/waterteleport-1.0.0+26.1.2.jar` (For Minecraft 26.1 – 26.1.2)
-- `build/libs/waterteleport-1.0.0+26.1.2-sources.jar`
-- `build/libs/waterteleport-1.0.0+26.2.jar` (For Minecraft 26.2)
-- `build/libs/waterteleport-1.0.0+26.2-sources.jar`
+### Build a Single Version
+
+You can build any specific Minecraft version subproject independently:
+
+```bash
+# Minecraft 1.20.1 (1.20 - 1.20.1):
+./gradlew :waterteleport-1.20.1:build
+
+# Minecraft 1.20.4 (1.20.2 - 1.20.4):
+./gradlew :waterteleport-1.20.4:build
+
+# Minecraft 1.21.1 (1.21 - 1.21.1):
+./gradlew :waterteleport-1.21.1:build
+
+# Minecraft 1.21.4 (1.21.2 - 1.21.4):
+./gradlew :waterteleport-1.21.4:build
+
+# Minecraft 1.21.11 (1.21.5 - 1.21.11):
+./gradlew :waterteleport-1.21.11:build
+
+# Minecraft 26.1.2 (26.1 - 26.1.2):
+./gradlew :waterteleport-26.1.2:build
+
+# Minecraft 26.2:
+./gradlew :waterteleport-26.2:build
+```
+
+### Output JAR Locations
+
+Upon a successful build, all output JARs are automatically collected into the root directory:
+`build/libs/`
+
+- `build/libs/waterteleport-1.0.0+mc1.20.1.jar`
+- `build/libs/waterteleport-1.0.0+mc1.20.4.jar`
+- `build/libs/waterteleport-1.0.0+mc1.21.1.jar`
+- `build/libs/waterteleport-1.0.0+mc1.21.4.jar`
+- `build/libs/waterteleport-1.0.0+mc1.21.11.jar`
+- `build/libs/waterteleport-1.0.0+mc26.1.2.jar`
+- `build/libs/waterteleport-1.0.0+mc26.2.jar`
+
+Accompanying `-sources.jar` files are also generated for each module.
+
+---
+
+## ➕ Adding a Future Minecraft Version
+
+To add a new Minecraft version to this project:
+
+1. Create a new module folder under `versions/<mc-version>/` containing:
+   - `build.gradle` (declares `fabric-loom` or `net.fabricmc.fabric-loom` plugin and repositories)
+   - `gradle.properties` specifying:
+     ```properties
+     minecraft_version=<mc-version>
+     fabric_api_version=<api-version>
+     minecraft_dependency=>=<min-version> <=<max-version>
+     java_version=<17|21|25>
+     java_dependency=>=<17|21|25>
+     era_dir=<v1_20|v1_21_4|v26>
+     ```
+2. Register the module in `settings.gradle`:
+   ```groovy
+   include 'waterteleport-<mc-version>'
+   project(':waterteleport-<mc-version>').projectDir = file("versions/<mc-version>")
+   ```
+3. Test compilation with `./gradlew :waterteleport-<mc-version>:build`. If the new Minecraft version introduced API changes, create a targeted `src/v<new_era>/` source directory and assign `era_dir=v<new_era>`.
 
 ---
 
