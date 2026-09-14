@@ -1,0 +1,68 @@
+plugins {
+	id 'net.fabricmc.fabric-loom'
+	id 'maven-publish'
+}
+
+version = "${rootProject.mod_version}+${project.minecraft_version}"
+group = rootProject.maven_group
+base.archivesName = rootProject.archives_base_name
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"waterteleport" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = [rootProject.file("src/main/java")]
+		}
+		resources {
+			srcDirs = [rootProject.file("src/main/resources")]
+		}
+	}
+	client {
+		java {
+			srcDirs = [rootProject.file("src/client/java")]
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	inputs.property "version", rootProject.mod_version
+	inputs.property "minecraft_dependency", project.minecraft_dependency
+
+	filesMatching("fabric.mod.json") {
+		expand "version": rootProject.mod_version,
+		       "minecraft_dependency": project.minecraft_dependency
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+	it.options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	from(rootProject.file("LICENSE")) {
+		rename { "${it}_${project.base.archivesName.get()}" }
+	}
+}

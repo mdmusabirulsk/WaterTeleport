@@ -36,7 +36,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configurable cooldown, sneak-to-throw toggle, projectile velocity, inaccuracy, search radius, and hazard checks.
   - Auto-repair and value validation clamping for out-of-range settings.
   - Thread-safe volatile singleton with NIO UTF-8 I/O.
-- **Modern Minecraft 26.1.2 Support**:
+- **Multi-Version Minecraft Support (26.1 – 26.2)**:
+  - Multi-subproject architecture with shared codebase across supported versions.
+  - Dedicated production artifacts: `waterteleport-1.0.0+26.1.2.jar` (supports Minecraft 26.1, 26.1.1, and 26.1.2) and `waterteleport-1.0.0+26.2.jar` (supports Minecraft 26.2).
   - Built against Mojang Official Mappings and Fabric Loader 0.19.5+.
   - Fully compatible with Java 25.
   - Standard JSpecify 1.0.0 null-safety annotations (`@NullMarked`, `@Nullable`) with zero compilation warnings.

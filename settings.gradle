@@ -10,3 +10,9 @@ pluginManagement {
 }
 
 rootProject.name = 'waterteleport'
+
+include 'waterteleport-26.1.2'
+project(':waterteleport-26.1.2').projectDir = file('versions/26.1.2')
+
+include 'waterteleport-26.2'
+project(':waterteleport-26.2').projectDir = file('versions/26.2')

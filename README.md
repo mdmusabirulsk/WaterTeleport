@@ -1,20 +1,20 @@
 # WaterTeleport
 
-[![Minecraft Version](https://img.shields.io/badge/Minecraft-26.1.2-brightgreen.svg)](https://www.minecraft.net/)
+[![Minecraft Version](https://img.shields.io/badge/Minecraft-26.1%20--%2026.2-brightgreen.svg)](https://www.minecraft.net/)
 [![Fabric Loader](https://img.shields.io/badge/Fabric%20Loader-0.19.5%2B-blue.svg)](https://fabricmc.net/)
 [![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://adoptium.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml/badge.svg)](https://github.com/mdmusabirulsk/WaterTeleport/actions/workflows/build.yml)
 [![Modrinth](https://img.shields.io/badge/Modrinth-Download%20Placeholder-00AF5C.svg)](https://modrinth.com/mod/waterteleport)
 
-**WaterTeleport** is a lightweight, server-authoritative Fabric mod for **Minecraft 26.1.2** that introduces an intuitive movement mechanic: throw Water Buckets as aerodynamic projectiles to teleport to your landing spot with particle effects, configurable cooldowns, and landing safety protection.
+**WaterTeleport** is a lightweight, server-authoritative Fabric mod for **Minecraft 26.1 – 26.2** that introduces an intuitive movement mechanic: throw Water Buckets as aerodynamic projectiles to teleport to your landing spot with particle effects, configurable cooldowns, and landing safety protection.
 
 ---
 
 ## 📑 Table of Contents
 
 - [Features](#-features)
-- [Requirements](#-requirements)
+- [Supported Versions & Requirements](#-supported-versions--requirements)
 - [Download & Distribution](#-download--distribution)
 - [Installation](#-installation)
 - [Usage](#-usage)
@@ -47,14 +47,12 @@
 
 ---
 
-## 📋 Requirements
+## 📋 Supported Versions & Requirements
 
-| Component | Minimum Version | Notes |
-| :--- | :--- | :--- |
-| **Minecraft** | `26.1.2` | Uses Mojang Official Mappings |
-| **Fabric Loader** | `0.19.5+` | Required on client and server |
-| **Fabric API** | `0.155.3+26.1.2` | Standard Fabric runtime library |
-| **Java Runtime (JRE)** | `Java 25+` | Modern JVM requirement for 26.1.2 |
+| Minecraft Version | Fabric Loader | Fabric API | Java Runtime | Release Artifact |
+| :--- | :--- | :--- | :--- | :--- |
+| **26.1 – 26.1.2** | `0.19.5+` | `0.155.3+26.1.2` | `Java 25+` | `waterteleport-1.0.0+26.1.2.jar` |
+| **26.2** | `0.19.5+` | `0.160.0+26.2` | `Java 25+` | `waterteleport-1.0.0+26.2.jar` |
 
 ---
 
@@ -70,14 +68,17 @@ Official releases and pre-compiled binaries are distributed via:
 ## 🚀 Installation
 
 ### Client Installation (Singleplayer / Multiplayer)
-1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for **Minecraft 26.1.2**.
-2. Download [Fabric API](https://modrinth.com/mod/fabric-api) for 26.1.2 and place it into your `.minecraft/mods/` directory.
-3. Download `waterteleport-1.0.0.jar` from [Releases](https://github.com/mdmusabirulsk/WaterTeleport/releases) and place it into your `.minecraft/mods/` directory.
-4. Launch the game using the Fabric profile.
+1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for your Minecraft version (**26.1.x** or **26.2**).
+2. Download the matching **Fabric API** from Modrinth and place it into your `.minecraft/mods/` directory.
+3. Download the matching WaterTeleport JAR:
+   - For **Minecraft 26.1, 26.1.1, 26.1.2**: use `waterteleport-1.0.0+26.1.2.jar`
+   - For **Minecraft 26.2**: use `waterteleport-1.0.0+26.2.jar`
+4. Place the JAR into your `.minecraft/mods/` directory.
+5. Launch the game using the Fabric profile.
 
 ### Dedicated Server Installation
-1. Install Fabric Loader on your Minecraft 26.1.2 server.
-2. Place `fabric-api-*.jar` and `waterteleport-1.0.0.jar` into the server's `mods/` directory.
+1. Install Fabric Loader on your Minecraft 26.1.x or 26.2 server.
+2. Place `fabric-api-*.jar` and the matching `waterteleport-*.jar` into the server's `mods/` directory.
 3. Restart the server. Configuration will generate under `config/waterteleport.json`.
 
 > **Note**: For multiplayer games, WaterTeleport must be installed on both the server (to handle projectile logic, physics, and teleport validation) and the client (for projectile entity rendering and client-side interpolation).
@@ -176,9 +177,11 @@ cd WaterTeleport
 gradlew.bat clean build
 ```
 
-Compiled output `.jar` files will be placed in `build/libs/`:
-- `build/libs/waterteleport-1.0.0.jar` (Production mod artifact)
-- `build/libs/waterteleport-1.0.0-sources.jar` (Decompiled source jar)
+Compiled output `.jar` files for all supported versions will be placed in `build/libs/`:
+- `build/libs/waterteleport-1.0.0+26.1.2.jar` (For Minecraft 26.1 – 26.1.2)
+- `build/libs/waterteleport-1.0.0+26.1.2-sources.jar`
+- `build/libs/waterteleport-1.0.0+26.2.jar` (For Minecraft 26.2)
+- `build/libs/waterteleport-1.0.0+26.2-sources.jar`
 
 ---
 
