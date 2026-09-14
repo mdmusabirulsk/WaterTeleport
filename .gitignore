@@ -1,0 +1,37 @@
+# Gradle & Java Bytecode
+.gradle/
+build/
+*.class
+
+# IDEs and Editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Minecraft / Fabric Run and Test Environments
+run/
+run-client/
+run-server/
+run-datagen/
+*.log
+crash-reports/
+
+# Configuration and Local Overrides
+*.local
+local.properties

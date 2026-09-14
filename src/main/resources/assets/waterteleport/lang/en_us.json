@@ -1,0 +1,4 @@
+{
+  "entity.waterteleport.thrown_water_bucket": "Thrown Water Bucket",
+  "text.waterteleport.unsafe_destination": "Cannot teleport: landing location is unsafe or obstructed!"
+}

@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "waterteleport",
+	"version": "${version}",
+	"name": "WaterTeleport",
+	"description": "Throw water buckets as projectiles to teleport with customizable cooldowns, particle effects, and built-in landing safety.",
+	"authors": [
+		"WaterTeleport Team"
+	],
+	"contact": {
+		"homepage": "https://github.com/mdmusabirulsk/WaterTeleport",
+		"sources": "https://github.com/mdmusabirulsk/WaterTeleport",
+		"issues": "https://github.com/mdmusabirulsk/WaterTeleport/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/waterteleport/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.waterteleport.WaterTeleportMod"
+		],
+		"client": [
+			"com.waterteleport.client.WaterTeleportClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
